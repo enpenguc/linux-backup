@@ -34,7 +34,7 @@ Linux/Unix提供了很多种Shell，为毛要这么多Shell？
 难道用来炒着吃么？那我问你，你同类型的衣服怎么有那么多件？花色，质地还不一样。写程序比买衣服复杂多了，而且程序员往往负责把复杂的事情搞简单，简单的事情搞复杂。牛程序员看到不爽的Shell，就会自己重新写一套，慢慢形成了一些标准，常用的Shell有这么几种，sh、bash、csh等，想知道你的系统有几种shell，可以通过以下命令查看：
 
 ```
-cat /etc/shells11
+cat /etc/shells
 ```
 
 显示如下：
@@ -88,7 +88,7 @@ Zsh具有以下主要功能
 对于一般的Ubuntu系统，配置好正确的源之后，就能直接键入以下命令安装：
 
 ```
-sudo apt-get install zsh11
+sudo apt-get install zsh
 ```
 
 ## 2.2 配置zsh
@@ -105,23 +105,23 @@ zsh的配置是一门大学问，这里不赘述，直接给出一个配置文�
 ------
 
 ```
-sudo usermod -s /bin/zsh username11
+sudo usermod -s /bin/zsh username
 ```
 
 或者
 
 ```
-chsh -s /bin/zsh11
+chsh -s /bin/zsh
 ```
 
 ```
-chsh -s `which zsh`11
+chsh -s `which zsh`
 ```
 
 如果要切换回去bash：
 
 ```
-chsh -s /bin/bash11
+chsh -s /bin/bash
 ```
 
 当然你实在不愿意把zsh当成默认的shell, 而又想使用它, 那么你可以每次进入是都使用`zsh`进入, 而输入`exit`退出
@@ -137,21 +137,21 @@ chsh -s /bin/bash11
 **直接用Git从github上面下载包**
 
 ```
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh11
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ```
 
 **备份已有的zshrc, 替换zshrc**
 
 ```
 cp ~/.zshrc ~/.zshrc.orig
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc1212
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 ```
 
 **直接使用脚本安装**
 
 ```
 cd oh-my-zsh/tools
-./install.sh1212
+./install.sh
 ```
 
 你可以直接直接使用如下命令安装
@@ -159,13 +159,13 @@ cd oh-my-zsh/tools
 **curl**
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"11
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 **wget**
 
 ```
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"11
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 
 其本质就是下载并执行了github上的install.sh脚本, 该脚本位于`oh-my-zsh/tools/install.sh`
@@ -177,13 +177,13 @@ oh-my-zsh集成了大量的主题, 位于[`oh-my-zsh/theme`](https://github.com/
 配置主题, 可以通过修改`~/.zshrc`中的环境变量`ZSH_THEME`来完成
 
 ```
-ZSH_THEME="agnoster" # (this is one of the fancy ones)11
+ZSH_THEME="ys" # (这个主题比较好看)
 ```
 
 如果你觉得主题太多你可以选择使用随机模式, 来由系统随机选择
 
 ```
-ZSH_THEME="random" # (...please let it be pie... please be some pie..)11
+ZSH_THEME="random" # (...please let it be pie... please be some pie..)
 ```
 
 ![zsh随机主题](http://img.blog.csdn.net/20161005222253721)
@@ -195,7 +195,7 @@ ZSH_THEME="random" # (...please let it be pie... please be some pie..)11
 修改`～/.zshrc`中`plugins`
 
 ```
-plugins=(git bundler osx rake ruby)11
+plugins=(git bundler osx rake ruby)
 ```
 
 详细的插件信息, 可以参见[zsh插件Plugins介绍](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins)
@@ -205,13 +205,13 @@ plugins=(git bundler osx rake ruby)11
 默认情况下, 您将被提示检查每几周的升级. 如果你想我ZSH自动升级本身没有提示你, 修改`~/.zshrc
 
 ```
-disable_update_prompt = true11
+disable_update_prompt = true
 ```
 
 禁用自动升级, 修改~/.zshrc
 
 ```
-disable_auto_update = true11
+disable_auto_update = true
 ```
 
 当然你也可以选择手动更新
@@ -219,7 +219,7 @@ disable_auto_update = true11
 如果你想在任何时间点升级（也许有人刚刚发布了一个新的插件，你不想等待一个星期？)你只需要运行：
 
 ```
-upgrade_oh_my_zsh11
+upgrade_oh_my_zsh
 ```
 
 **卸载oh-my-zsh**
@@ -227,7 +227,7 @@ upgrade_oh_my_zsh11
 如果你想卸载`oh-my-zsh`, 只需要执行`uninstall_oh_my_zsh zsh`， 从命令行运行. 这将删除本身和恢复你以前的bash或者zsh配置.
 
 ```
-uninstall_oh_my_zsh zsh11
+uninstall_oh_my_zsh zsh
 ```
 
 此外, 更多任性的功能, 速度来感受吧
