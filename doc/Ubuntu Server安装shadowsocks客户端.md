@@ -105,10 +105,19 @@
    # 配置随机启动
    ```
 
+9. 附录：git 代理设置
+
+   ```bash
+   # git设置https代理
+   git config --global https.proxy https://127.0.0.1:8123
+   # 取消https代理
+   git config --global --unset https.proxy
+   ```
+
 ## FAQ
 
 1. ping 测试不通, `ping www.google.com`没用响应
 
-   > ping 测试不通，这是正常的。原因 sock 代理走 TCP/UDP 协议,而 ping 命令走 ICMP 协议。ping 一个网站地址，操作系统需要请求 DNS 服务器，解析到 IP 地址，才能够发出 ICMP 包。ping 不通 google.com 只能说明当前的网络 DNS 服务器不解释词域名。
+   > ping 测试不通，这是正常的。原因 sock 代理走 TCP/UDP 协议,而 ping 命令走 ICMP 协议。ping 一个网站地址，操作系统需要请求 DNS 服务器，解析到 IP 地址，才能够发出 ICMP 包。ping 不通 google.com 只能说明当前的网络 DNS 服务器不解释此域名。
    > 相关问题见
    > https://stackoverflow.com/questions/5274934/use-ping-through-socks-server
