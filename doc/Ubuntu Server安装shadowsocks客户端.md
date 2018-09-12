@@ -82,6 +82,8 @@
    ```bash
    # ip.sb站点测试，如果返回ip为shadowsocks的服务地址，则说明成功
    $ curl ip.sb
+   # ip.cn站点测试
+   $ curl ip.cn
    # curl测试,返回html内容则表示成功
    $ curl www.google.com
    ```
