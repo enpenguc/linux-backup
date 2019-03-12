@@ -109,13 +109,55 @@
 
 9. 附录：git 代理设置
 
+   9.1. 基本知识：git clone有两种形式，一个是走http(https),另一种是ssh。两种方式的代理设置不一样。两种方式示例如下：
+   ```bash
+   # 使用ssh方式(Clone with SSH)
+   $ git clone git@github.com:enpenguc/linux-backup.git
+   # 使用https方式(Clone with HTTPS)
+   $ git clone https://github.com/enpenguc/linux-backup.git
+   ```
+   9.2. http(https)代理设置如下：
+
    ```bash
    # git设置https代理
-   git config --global https.proxy https://127.0.0.1:8123
-   # 取消https代理
-   git config --global --unset https.proxy
+   $ git config --global https.proxy https://127.0.0.1:8123
+   # 或者走socks5 代理（如Shadowsocks客户端,MAC下sock5端口设置为1087）
+   $ git config --global https.proxy "socks5://127.0.0.1:1087"
+   # 设置了https代理后即可通过https方式clone代码
+   $ git clone https://github.com/enpenguc/linux-backup.git
+   # 另附：取消https代理命令，如下
+   $ git config --global --unset https.proxy
    ```
-
+   
+   9.3. ssh方式：
+   
+   9.3.1 修改`~/.ssh/config` 文件（不存在则新建）
+   
+   ```bash
+   # 修改~/.ssh/config文件
+   $ vim ~/.ssh/config
+   ```
+   
+   9.3.2 填入一下配置（注意`方式1`、`方式2`开启一个即可，如当前开启`方式2：走 socks5 代理（如 Shadowsocks）`）
+   
+   ```bash
+   # 必须是 github.com
+   Host github.com
+      HostName github.com
+      User git
+      # 方式1：走 HTTP 代理
+      # ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=1087
+      # 方式2：走 socks5 代理（如 Shadowsocks，当前mac的socks配置端口为1086）
+      ProxyCommand nc -v -x 127.0.0.1:1086 %h %p
+   ```
+   
+   9.3.3 配置好ssh代理后，即可使用ssh方式clone代码
+   
+   ```bash
+   # 使用ssh方式(Clone with SSH)
+   $ git clone git@github.com:enpenguc/linux-backup.git
+   ```
+ 
 ## FAQ
 
 1. ping 测试不通, `ping www.google.com`没用响应
